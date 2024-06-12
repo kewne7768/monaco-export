@@ -1,0 +1,6 @@
+{
+  "name": "monaco-export",
+  "dependencies": {
+    "monaco-editor": "^0.49.0"
+  }
+}
