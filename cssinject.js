@@ -1,7 +1,7 @@
 import { default as builtCssStr } from "./builtcss.builtcss";
 
-let monacoCssUrl = URL.createObjectURL(new Blob([builtCssStr], { type: "text/css" }));
-let css = document.createElement("link");
+const monacoCssUrl = URL.createObjectURL(new Blob([builtCssStr], { type: "text/css" }));
+const css = document.createElement("link");
 css.setAttribute("rel", "stylesheet");
 css.setAttribute("type", "text/css");
 css.setAttribute("href", monacoCssUrl);
