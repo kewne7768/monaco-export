@@ -1,7 +1,7 @@
 name: "Build and deploy amalgam"
 on:
   push:
-    branches: [$default-branch]
+    branches: [main]
 permissions:
   contents: read
   pages: write
