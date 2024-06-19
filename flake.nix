@@ -38,20 +38,20 @@
           installPhase = ''
             cd "$TMP/root"
             # Minify the workers
-            esbuild node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --minify --bundle --target=es2017 --outfile=$TMP/root/ts.workerjs
-            esbuild node_modules/monaco-editor/esm/vs/editor/editor.worker.js --minify --bundle --target=es2017 --outfile=$TMP/root/editor.workerjs
+            esbuild node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --minify --bundle --target=es2022 --outfile=$TMP/root/ts.workerjs
+            esbuild node_modules/monaco-editor/esm/vs/editor/editor.worker.js --minify --bundle --target=es2022 --outfile=$TMP/root/editor.workerjs
 
             # Build pass 1: we really only care about the CSS. This version will inject a placeholder file while also building the real one.
             touch $TMP/root/builtcss.builtcss
             esbuild monaco-export.js \
-              --minify --bundle --target=es2017 \
+              --minify --bundle --target=es2022 \
               --loader:.ttf=dataurl --loader:.workerjs=text --loader:.builtcss=text \
               --outdir=$TMP/css-pass
             mv -f $TMP/css-pass/monaco-export.css $TMP/root/builtcss.builtcss
 
             # Build pass 2: real CSS injector included! This one goes in $out.
             esbuild monaco-export.js \
-              --minify --bundle --target=es2017 \
+              --minify --bundle --target=es2022 \
               --loader:.ttf=dataurl --loader:.workerjs=text --loader:.builtcss=text \
               --outdir=$out
             # Delete extranous now-bundled CSS file
@@ -61,5 +61,5 @@
         };
       };
     };
-  #esbuild monaco-export.js ts.worker=node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js editor.worker=node_modules/monaco-editor/esm/vs/editor/editor.worker.js --minify --bundle --target=es2017 --loader:.ttf=file --outdir=result
+  #esbuild monaco-export.js ts.worker=node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js editor.worker=node_modules/monaco-editor/esm/vs/editor/editor.worker.js --minify --bundle --target=es2022 --loader:.ttf=file --outdir=result
 }
