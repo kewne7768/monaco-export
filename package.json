@@ -1,6 +1,6 @@
 {
   "name": "monaco-export",
   "dependencies": {
-    "monaco-editor": "^0.51.0"
+    "monaco-editor": "^0.53.0"
   }
 }
