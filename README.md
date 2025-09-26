@@ -12,7 +12,7 @@ So we build it via ESBuild, and then copy that built CSS, and rebuild it _again_
 
 And this is done with Nix because I'm silly like that. (You could say this whole thing is a learning exercise. (In learning how to do things badly.))
 
-The end result is a single >9MB file (~2.8MB zstd).
+The end result is a single ~10MB file (~2.5MB zstd).
 
 ## Dynamic load hook
 
